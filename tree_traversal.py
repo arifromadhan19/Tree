@@ -34,12 +34,6 @@ def printPreorder(root):
         # Finally recur on right child
         printPreorder(root.right)
 
-# def printPreorder(root):
-#     if root:
-#         print(root.val),
-#         printPreorder(root.left)
-#         printPreorder(root.right)
-
 # Driver code
 root = Node(1)
 root.left = Node(2)
