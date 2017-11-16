@@ -76,7 +76,7 @@ class Binary_search_tree:
         right_height = self._height(cur_node.right_child, cur_height+1)
         return max(left_height,right_height)
 
-
+    # FIRST WAY SEACRH
     def search(self,value):
         if self.root!=None:
             return self._search(value,self.root)
@@ -132,6 +132,18 @@ def height2(root):
 print("Tree height 1 => ",str(tree.height()))
 print("Tree height 2 => ",str(height2(tree.root)))
 
+#SECOND WAY SEACRH
+def search2(root,value):
+    if value == root.value:
+        return True
+
+    elif value < root.value and root.left_child!=None :
+        return search2(root.left_child, value)
+    elif value > root.value and root.right_child!=None :
+        return search2(root.right_child, value)
+    return False
+
 
 print(tree.search(10))
 print(tree.search(30))
+print("SEARCH ",search2(tree.root,40))
