@@ -112,16 +112,29 @@ tree.insert(7)
 tree.insert(10)
 tree.insert(0)
 
+#function to insert a new node with the given key
+def new_insert_node(root,val):
+    if root == None:
+        root = Node('')
+        root.value =val
+    else:
+        if val < root.value:
+            if root.left_child:
+                new_insert_node(root.left_child,val)
+            else:
+                root.left_child =Node('')
+                root.left_child.value = val
+        else:
+            if root.right_child:
+                new_insert_node(root.right_child,val)
+            else:
+                root.right_child =Node('')
+                root.right_child.value = val
+    return root
 
-#SECOND WAY PRINT
-def print2(root):
-    if root != None:
-        print2(root.left_child)
-        print(str(root.value))
-        print2(root.right_child)
 
-# print(print2(tree.root))
-tree.print_tree()
+new_insert_node(tree.root,12)
+
 
 # SECOND WAY HEIGHT
 def height2(root):
@@ -146,4 +159,14 @@ def search2(root,value):
 
 print(tree.search(10))
 print(tree.search(30))
-print("SEARCH ",search2(tree.root,40))
+print("SEARCH ",search2(tree.root,12))
+
+#SECOND WAY PRINT
+def print2(root):
+    if root != None:
+        print2(root.left_child)
+        print(str(root.value))
+        print2(root.right_child)
+
+# print(print2(tree.root))
+tree.print_tree()
